@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapMix - הבלנדר הנייד שלך</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Assistant', sans-serif; background-color: #f9fbfb; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(to bottom, #ffffff, #f0f7f4); }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .color-dot.active { ring: 2px solid #4b5563; ring-offset: 2px; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-answer { max-height: 100px; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+    </style>
+</head>
+<body>
+
+    <header class="flex justify-between items-center px-8 py-4 bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">S</div>
+            <span class="text-xl font-bold text-gray-800">SnapMix</span>
+        </div>
+        <nav class="hidden md:flex gap-6 text-gray-600 font-medium">
+            <a href="#" class="hover:text-green-600">דף הבית</a>
+            <a href="#features" class="hover:text-green-600">יתרונות</a>
+            <a href="#faq" class="hover:text-green-600">שאלות נפוצות</a>
+        </nav>
+        <button class="text-gray-800 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
+    </header>
+
+    <section class="hero-gradient px-6 py-12 lg:px-24 flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+            <img src="https://i.ibb.co/7NtW0jst/2026-04-24-174927.png" alt="SnapMix Product" class="rounded-3xl shadow-2xl w-full object-cover aspect-square">
+        </div>
+        <div class="lg:w-1/2 text-right">
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">🍓 המכירה המוקדמת החלה!</span>
+            <h1 class="text-5xl font-extrabold text-gray-900 mt-4 mb-2">SnapMix</h1>
+            <p class="text-xl text-gray-600 mb-4">בלנדר נייד עוצמתי - שייק טרי בכל מקום ובכל זמן</p>
+            <div class="flex items-center gap-2 mb-6 justify-start">
+                <span class="text-yellow-400 text-xl">★★★★★</span>
+                <span class="text-gray-500">(122 חוות דעת)</span>
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-4xl font-bold text-gray-900">₪69.90</span>
+                <span class="text-xl text-gray-400 line-through">₪129.90</span>
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-sm">45% הנחה</span>
+            </div>
+            
+            <div class="mb-8">
+                <p class="font-bold mb-3">בחר צבע:</p>
+                <div class="flex gap-3" id="colorPicker">
+                    <button onclick="selectColor(this)" class="color-dot w-8 h-8 rounded-full bg-blue-500 ring-2 ring-offset-2 ring-blue-500 active"></button>
+                    <button onclick="selectColor(this)" class="color-dot w-8 h-8 rounded-full bg-green-400"></button>
+                    <button onclick="selectColor(this)" class="color-dot w-8 h-8 rounded-full bg-pink-300"></button>
+                </div>
+            </div>
+
+            <a href="pay.html" class="block w-full">
+                <button class="w-full bg-green-600 hover:bg-green-700 text-white text-xl font-bold py-4 rounded-xl transition-all shadow-lg shadow-green-200 transform hover:-translate-y-1">
+                    הזמינו עכשיו - ₪69.90
+                </button>
+            </a>
+            <p class="text-center text-gray-400 mt-4 text-sm">✓ משלוח חינם לכל הארץ | ✓ אחריות מלאה</p>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">למה SnapMix?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-2xl card-shadow text-center">
+                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🔋</div>
+                <h3 class="font-bold text-xl mb-2">סוללה חזקה במיוחד</h3>
+                <p class="text-gray-500">עד 15 שייקים בטעינה אחת. סוללת ליתיום עוצמתית.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl card-shadow text-center">
+                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">⚡</div>
+                <h3 class="font-bold text-xl mb-2">מנוע טורבו עוצמתי</h3>
+                <p class="text-gray-500">כותש קרח ופירות קפואים תוך שניות בודדות.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl card-shadow text-center">
+                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🧼</div>
+                <h3 class="font-bold text-xl mb-2">ניקוי עצמי קליל</h3>
+                <p class="text-gray-500">פשוט מוסיפים מים וטיפת סבון, לוחצים על הכפתור והוא נקי!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">מה הלקוחות אומרים</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-700 italic mb-4">"המוצר הכי טוב שקניתי השנה! לוקחת אותו איתי לכל אימון במכון."</p>
+                <div class="font-bold">- נועה ל.</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-700 italic mb-4">"הניקוי שלו פשוט מדהים. לא מאמין כמה הוא חזק יחסית לגודל שלו."</p>
+                <div class="font-bold">- עידן ר.</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-2">★★★★★</div>
+                <p class="text-gray-700 italic mb-4">"משלוח הגיע תוך יומיים, ארוז יפה והצבע ורוד פשוט מושלם!"</p>
+                <div class="font-bold">- מאיה כ.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-green-600 py-20 px-6 text-center text-white">
+        <h2 class="text-4xl font-bold mb-6">מוכנים לשייק הבא שלכם? 🍓</h2>
+        <p class="text-xl mb-10 opacity-90">הצטרפו לאלפי לקוחות שנהנים משייק בריא בכל מקום</p>
+        <a href="pay.html">
+            <button class="bg-white text-green-700 px-12 py-4 rounded-full text-2xl font-bold hover:scale-105 transition-transform shadow-xl">
+                קנו עכשיו - ₪69.90
+            </button>
+        </a>
+    </section>
+
+    <section id="faq" class="py-20 px-6 max-w-3xl mx-auto text-right">
+        <h2 class="text-3xl font-bold text-center mb-12">שאלות נפוצות</h2>
+        <div class="space-y-4">
+            <div class="faq-item border-b border-gray-200 pb-4">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 font-bold text-lg focus:outline-none">
+                    <span class="faq-icon transition-transform duration-300 text-green-600 text-2xl">+</span>
+                    <span>כמה זמן לוקח משלוח?</span>
+                </button>
+                <div class="faq-answer text-gray-600 px-2">
+                    המשלוחים שלנו מהירים במיוחד! בדרך כלל המוצר מגיע לפתח ביתך תוך 2-4 ימי עסקים לכל חלקי הארץ.
+                </div>
+            </div>
+            <div class="faq-item border-b border-gray-200 pb-4">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 font-bold text-lg focus:outline-none">
+                    <span class="faq-icon transition-transform duration-300 text-green-600 text-2xl">+</span>
+                    <span>האם אפשר לכתוש קרח?</span>
+                </button>
+                <div class="faq-answer text-gray-600 px-2">
+                    בוודאי. ל-SnapMix יש להבי פלדה עוצמתיים ומנוע טורבו שתוכנן במיוחד לכתישת קרח ופירות קפואים בצורה חלקה.
+                </div>
+            </div>
+            <div class="faq-item border-b border-gray-200 pb-4">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center py-4 font-bold text-lg focus:outline-none">
+                    <span class="faq-icon transition-transform duration-300 text-green-600 text-2xl">+</span>
+                    <span>מה תקופת האחריות?</span>
+                </button>
+                <div class="faq-answer text-gray-600 px-2">
+                    אנחנו מספקים אחריות מלאה למשך 12 חודשים על כל רכיבי הבלנדר. שביעות הרצון שלכם היא בראש סדר העדיפויות שלנו.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-8 text-center text-gray-500 text-sm">
+        <div class="mb-4 flex justify-center gap-4">
+            <a href="#" class="hover:text-green-600 text-lg">Facebook</a>
+            <a href="#" class="hover:text-green-600 text-lg">Instagram</a>
+        </div>
+        <p>© 2026 SnapMix Israel. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        function selectColor(btn) {
+            document.querySelectorAll('.color-dot').forEach(d => {
+                d.classList.remove('ring-2', 'ring-offset-2', 'ring-gray-600', 'active');
+            });
+            btn.classList.add('ring-2', 'ring-offset-2', 'ring-gray-600', 'active');
+        }
+
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
